@@ -91,7 +91,7 @@
       </div>
       <div>
         <ul id="draggablePanelList" class="list-unstyled">
-          <li class="panel panel-info" style="border-color: #ffbb4b;">
+          <li id="doorPanel" class="active panel panel-info" style="border-color: #ffbb4b;">
             <div class="panel-heading" style="color: #b36f00;background-color: #ffe2b3;border-color: #ffbb4b;">
               <span>Nimblet 1</span>
               <button id="doorBtn" class="btn btn-default btn-xs" style="float:right;">Run</button>
@@ -101,10 +101,10 @@
                 <div class="text-center highcharts-title" style="margin-bottom:10px;color:#333333;font-size:18px;fill:#333333;font-family:Lucida Grande, Lucida Sans Unicode, Arial, Helvetica, sans-serif">Live Status</div>
                 <img class="featurette-image img-responsive center-block" src="assets/img/DOOR_CLOSED.png">
               </div>
-              <div class="col-md-9" id="doorNimblet" style="min-width: 310px; height: 300px; margin: 0 auto"></div>
+              <div class="col-md-9" id="doorGraph" style="min-width: 310px; height: 300px; margin: 0 auto"></div>
             </div>
           </li>
-          <li class="panel panel-info">
+          <li id="toothbrushPanel" class="inactive panel panel-info">
             <div class="panel-heading">
               <span>Nimblet 2</span>
               <button id="toothbrushBtn" class="btn btn-default btn-xs" style="float:right;">Run</button>
@@ -114,10 +114,10 @@
                 <div class="text-center highcharts-title" style="margin-bottom:10px;color:#333333;font-size:18px;fill:#333333;font-family:Lucida Grande, Lucida Sans Unicode, Arial, Helvetica, sans-serif">Live Status</div>
                 <img class="featurette-image img-responsive center-block" src="assets/img/TOOTH_BRUSH.png">
               </div>
-              <div class="col-md-9" id="toothbrushNimblet" style="min-width: 310px; height: 300px; margin: 0 auto"></div>
+              <div class="col-md-9" id="toothbrushGraph" style="min-width: 310px; height: 300px; margin: 0 auto"></div>
             </div>
           </li>
-          <li class="panel panel-info" style="border-color: #ff2323;">
+          <li id="medicinePanel" class="inactive panel panel-info" style="border-color: #ff2323;">
             <div class="panel-heading" style="color: #b30000;background-color: #ffb3b3;border-color: #ff2323;">
               <span>Nimblet 3</span>
               <button id="medicineBtn" class="btn btn-default btn-xs" style="float:right;">Run</button>
@@ -130,7 +130,7 @@
               <div class="col-md-9" id="medicineNimblet" style="min-width: 310px; height: 300px; margin: 0 auto"></div>
             </div>
           </li>
-          <li class="panel panel-info" style="border-color: #654b1a;">
+          <li id="poopPanel" class="inactive panel panel-info" style="border-color: #654b1a;">
             <div class="panel-heading" style="color: #9c7328;background-color: #d5ab5d;border-color: #654b1a;">
               <span>Nimblet 4</span>
               <button id="poopBtn" class="btn btn-default btn-xs" style="float:right;">Run</button>
@@ -188,7 +188,7 @@
     var yourLabels = ["Closed", "Open"];
 
     $(function () {
-      $('#doorNimblet').highcharts({
+      $('#doorGraph').highcharts({
         chart: {
             type: 'spline'
         },
@@ -265,7 +265,7 @@
 
 
     // Toothbrush Tracker
-    $('#toothbrushNimblet').highcharts({
+    $('#toothbrushGraph').highcharts({
         chart: {
             type: 'column'
         },
@@ -429,6 +429,12 @@
     $("#doorBtn").click(function(){
       console.log("Run Door");
 
+      // Disable active panel and enable this panel
+      $(".active").addClass('inactive');
+      $(".active").removeClass('active');
+      $("#doorPanel").addClass('active');
+
+      // Notify Server which app got activated
       $.get("http://ec2-52-91-163-253.compute-1.amazonaws.com/sensorendpoint/test", function(data, status){
         console.log("Data: " + data + "\nStatus: " + status);
       })
@@ -436,18 +442,46 @@
 
     $("#toothbrushBtn").click(function(){
       console.log("Run ToothBrush");
+
+      // Disable active panel and enable this panel
+      $(".active").addClass('inactive');
+      $(".active").removeClass('active');
+      $("#toothbrushPanel").addClass('active');
     });
 
     $("#medicineBtn").click(function(){
       console.log("Run Medicine");
+
+      // Disable active panel and enable this panel
+      $(".active").addClass('inactive');
+      $(".active").removeClass('active');
+      $("#medicinePanel").addClass('active');
     });
 
     $("#poopBtn").click(function(){
       console.log("Run Poop`");
+
+      // Disable active panel and enable this panel
+      $(".active").addClass('inactive');
+      $(".active").removeClass('active');
+      $("#poopPanel").addClass('active');
     });
 
     function disablePanel(panel){
 
     }
+
+    //Panel mouse over event handler
+    $(".panel").mouseover(function(){
+        if ($(this).hasClass('inactive')) {
+            $(this).removeClass('inactive');
+        }
+    });
+    $(".panel").mouseleave(function(){
+        if (!$(this).hasClass('active')) {
+            $(this).addClass('inactive');
+        }
+    });
+
   </script>
 </html>
