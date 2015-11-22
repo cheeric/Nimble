@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <!--link rel="icon" href="favicon.ico"!-->
 
-    <title>Get Nimble!</title>
+    <title>Nimble App Store</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
@@ -44,6 +44,17 @@
         color: white;
         font-family: 'Raleway', sans-serif;
     }
+
+    .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+        position: relative;
+        min-height: 1px;
+        padding-right: 25px;
+        padding-left: 25px;
+    }
+
+    .padright {
+      padding-right:55px
+    }
   </style>
 
   <body>
@@ -65,7 +76,7 @@
               <ul class="nav navbar-nav">
                 <li class="active"><a href="index.html">Home</a></li>
                 <li><a href="myapps.html">My Apps</a></li>
-                <li><a href="#store">Store</a></li>
+                <li><a href="store.html">Store</a></li>
               </ul>
             </div>
           </div>
@@ -99,67 +110,162 @@
     <div class="container">
 
       <div class="starter-template">
-        <h1>My Apps</h1>
+        <h1 style="color:white">App Store</h1>
       </div>
-      <div>
-        <ul id="draggablePanelList" class="list-unstyled">
-          <li id="doorPanel" class="active panel panel-info" style="border-color: #ffbb4b;">
-            <div class="panel-heading" style="color: #b36f00;background-color: #ffe2b3;border-color: #ffbb4b;">
-              <span>Nimblet 1</span>
-              <button id="doorBtn" class="btn btn-default btn-xs" style="float:right;">Run</button>
-            </div>
-            <div class="panel-body row">
-              <div class="col-md-3">
-                <div class="text-center highcharts-title" style="margin-bottom:10px;color:#333333;font-size:18px;fill:#333333;font-family:Lucida Grande, Lucida Sans Unicode, Arial, Helvetica, sans-serif">Live Status</div>
-                <img class="featurette-image img-responsive center-block" src="assets/img/DOOR_CLOSED.png">
+      <div class="row">
+        <div class="col-md-3">
+          <img style="width:100%" src="assets/img/app_icons/door_app.png">
+          <div class="padright">
+            <div class="row">
+              <div class="col-md-9">
+                <h3>GateKeeper</h3>
               </div>
-              <div class="col-md-9" id="doorGraph" style="min-width: 310px; height: 300px; margin: 0 auto"></div>
-            </div>
-          </li>
-          <li id="toothbrushPanel" class="inactive panel panel-info">
-            <div class="panel-heading">
-              <span>Nimblet 2</span>
-              <button id="toothbrushBtn" class="btn btn-default btn-xs" style="float:right;">Run</button>
-            </div>
-            <div class="panel-body">
               <div class="col-md-3">
-                <div class="text-center highcharts-title" style="margin-bottom:10px;color:#333333;font-size:18px;fill:#333333;font-family:Lucida Grande, Lucida Sans Unicode, Arial, Helvetica, sans-serif">Live Status</div>
-                <img class="featurette-image img-responsive center-block" src="assets/img/TOOTH_BRUSH.png">
+                <h3>Free</h3>
               </div>
-              <div class="col-md-9" id="toothbrushGraph" style="min-width: 310px; height: 300px; margin: 0 auto"></div>
             </div>
-          </li>
-          <li id="medicinePanel" class="inactive panel panel-info" style="border-color: #ff2323;">
-            <div class="panel-heading" style="color: #b30000;background-color: #ffb3b3;border-color: #ff2323;">
-              <span>Nimblet 3</span>
-              <button id="medicineBtn" class="btn btn-default btn-xs" style="float:right;">Run</button>
-            </div>
-            <div class="panel-body">
+            <div class="row">
+              <div class="col-md-9">
+                <p>Live door status and history tracker</p>
+              </div>
               <div class="col-md-3">
-                <div class="text-center highcharts-title" style="margin-bottom:10px;color:#333333;font-size:18px;fill:#333333;font-family:Lucida Grande, Lucida Sans Unicode, Arial, Helvetica, sans-serif">Live Status</div>
-                <img class="featurette-image img-responsive center-block" src="assets/img/MED_OK.png">
+                <button class="btn btn-danger btn-default">GET</button>
               </div>
-              <div class="col-md-9" id="medicineNimblet" style="min-width: 310px; height: 300px; margin: 0 auto"></div>
             </div>
-          </li>
-          <li id="poopPanel" class="inactive panel panel-info" style="border-color: #654b1a;">
-            <div class="panel-heading" style="color: #9c7328;background-color: #d5ab5d;border-color: #654b1a;">
-              <span>Nimblet 4</span>
-              <button id="poopBtn" class="btn btn-default btn-xs" style="float:right;">Run</button>
-            </div>
-            <div class="panel-body">
+          </div>
+        </div>
+        <div class="col-md-3">
+          <img style="width:100%" src="assets/img/app_icons/toothbrush_app.png">
+          <div class="padright">
+            <div class="row">
+              <div class="col-md-9">
+                <h3>Brush It</h3>
+              </div>
               <div class="col-md-3">
-                <div class="text-center highcharts-title" style="margin-bottom:10px;color:#333333;font-size:18px;fill:#333333;font-family:Lucida Grande, Lucida Sans Unicode, Arial, Helvetica, sans-serif">Live Status</div>
-                <img class="featurette-image img-responsive center-block" src="assets/img/POOP_ICON.png">
+                <h3>Free</h3>
               </div>
-              <div class="col-md-9" id="poopNimblet" style="min-width: 310px; height: 300px; margin: 0 auto"></div>
             </div>
-          </li>
-        </ul>
-        <button class="btn btn-default" style="width:100%; height:100px; border-style:dashed">
-          <span class="glyphicon glyphicon-plus" style="color:grey" aria-hidden="true"></span>
-        </button>
-
+            <div class="row">
+              <div class="col-md-9">
+                <p>Monitor thoothbrush sessions!</p>
+              </div>
+              <div class="col-md-3">
+                <button class="btn btn-danger btn-default">GET</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <img style="width:100%" src="assets/img/app_icons/med_app.png">
+          <div class="padright">
+            <div class="row">
+              <div class="col-md-9">
+                <h3>FreshMeds</h3>
+              </div>
+              <div class="col-md-3">
+                <h3>Free</h3>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-9">
+                <p>Did you meds go bad?</p>
+              </div>
+              <div class="col-md-3">
+                <button class="btn btn-danger btn-default">GET</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <img style="width:100%" src="assets/img/app_icons/bike_app.png">
+          <div class="padright">
+            <div class="row">
+              <div class="col-md-9">
+                <h3>FitBike</h3>
+              </div>
+              <div class="col-md-3">
+                <h3>$0.99</h3>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-9">
+                <p>Track speed and distance for cyclists.</p>
+              </div>
+              <div class="col-md-3">
+                <button class="btn btn-danger btn-default">BUY</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-3">
+          <img style="width:100%" src="assets/img/app_icons/fridge_app.png">
+          <div class="padright">
+            <div class="row">
+              <div class="col-md-9">
+                <h3>SmartFridge</h3>
+              </div>
+              <div class="col-md-3">
+                <h3>$0.99</h3>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-9">
+                <p>Know when your food goes bad.</p>
+              </div>
+              <div class="col-md-3">
+                <button class="btn btn-danger btn-default">BUY</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <img style="width:100%" src="assets/img/app_icons/waterleak_app.png">
+          <div class="padright">
+            <div class="row">
+              <div class="col-md-9">
+                <h3>WaterLeak</h3>
+              </div>
+              <div class="col-md-3">
+                <h3>$0.99</h3>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-9">
+                <p>Detect water leaks.</p>
+              </div>
+              <div class="col-md-3">
+                <button class="btn btn-danger btn-default">BUY</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <img style="width:100%" src="assets/img/app_icons/poop_app.png">
+          <div class="padright">
+            <div class="row">
+              <div class="col-md-9">
+                <h3>SmartDiaper</h3>
+              </div>
+              <div class="col-md-3">
+                <h3>$0.99</h3>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-9">
+                <p>Know when your baby needs maintenance.</p>
+              </div>
+              <div class="col-md-3">
+                <button class="btn btn-danger btn-default">BUY</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <img style="width:100%" src="assets/img/app_icons/infinity_app.png">
+        </div>
       </div>
       <br>
     </div><!-- /.container -->
